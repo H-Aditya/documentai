@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% csrf_token %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Page</title>
+</head>
+
+<body>
+    <h2>Predict Page</h2>
+    <form method="post">
+        {% csrf_token %}
+       
+        <label>Image:</label>
+        <div>
+            <input name = "image" type="file" value="{{ form.image }}" />
+        </div>
+
+        <button type="submit">Upload</button>
+
+    </form>
+</body>
+
+</html>

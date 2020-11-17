@@ -1,0 +1,32 @@
+<html>
+
+<body>
+
+  {% load static %}
+  {% for i in trained_models %}
+
+  {% csrf_token %}
+  <h1>{{ i.model_name }}</h1>
+  <h5>{{ i.model_id }}</h5>
+  <h5>{{ i.model_accuracy }}</h5>
+  <h5>{{ i.model_loss }}</h5>2
+  <h5>{{ i.model_status }}</h5>
+  <h5>{{ i.model_check }}</h5>
+  <h5>{{ i.model_epochs }}</h5>
+  <img src="{% static i.model_image %}" width="400" height="250">
+  {% if i.model_name %}
+
+  {% if i.model_name == "MNIST Model" %}
+  <button><a href="predictmnist/{{i.id}}">Predict</a></button>
+  {% endif %}
+
+  {% if i.model_name == "FMNIST Model" %}
+  <button><a href="predictfmnist/{{i.id}}">Predict</a></button>
+  {% endif %}
+
+  {% endif %}
+
+  {% endfor %}
+</body>
+
+</html>
